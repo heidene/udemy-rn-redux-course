@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 
 const styles = {
@@ -15,16 +15,18 @@ const styles = {
 };
 
 const CardSection = (props) => {
-  const { children } = props;
-  return <View style={styles.containerStyle}>{children}</View>;
+  const { children, style } = props;
+  return <View style={[styles.containerStyle, style]}>{children}</View>;
 };
 
 CardSection.propTypes = {
   children: PropTypes.node,
+  style: ViewPropTypes.style,
 };
 
 CardSection.defaultProps = {
   children: null,
+  style: null,
 };
 
 export default CardSection;
